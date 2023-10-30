@@ -1,8 +1,8 @@
 import React from 'react';
-import {Input,Button, Select,Heading} from "@chakra-ui/react"
-import Style from './Signupform.module.css'
+import animation from "../assets/Sign up.gif";
+import { RxAvatar } from "react-icons/rx";
 import {Link,useNavigate} from "react-router-dom"
-import { useState } from 'react';
+import { useState } from 'react'
 function Signupform(props) {
    let [Name,SetName] = useState("");
    let [Email,SetEmail] = useState("");
@@ -32,37 +32,73 @@ function Signupform(props) {
         console.log(error);
     })
 
-
    }
     
     return (
-        <div className={Style.signupformparent}>
-            <form style={{width:"70%",padding:"35px",margin:"auto",backgroundColor:"rgba(0,0,0,0.5)",borderRadius:"8px"}} onSubmit={AddUser}>
-            <h1 style={{fontSize:"30px",fontWeight:"600",color:"white"}}>Signup</h1>
-            {/* <label>Name</label> */}
-            <Input variant='flushed' placeholder='Enter Your Name' size="md" type='text'style={{color:"white"}} onChange={(event)=>{
-                SetName(event.target.value)
-            }}/><br/><br/>
-            {/* <label>Email</label> */}
-            <Input variant='flushed' placeholder='Enter your Email' size="md" type='email' color="white" style={{color:"white"}}onChange={(event)=>{
-                SetEmail(event.target.value)
-            }}/><br/><br/>
-            <Input variant='flushed' placeholder='Enter your Password' size="md" type='password' color="white" style={{color:"white"}}onChange={(event)=>{
-                SetPassword(event.target.value)
-            }}/><br/><br/>
-            <Select variant='flushed' placeholder='Select User Type' style={{color:"gray"}} onChange={(event)=>{
-                SetRole(event.target.value)
-            }}>
-                <option value="Blogger">Blogger</option>
-                <option value="Reader">Reader</option>
-            </Select>
-            <Button type='submit' colorScheme='teal' variant='solid'style={{margin:"20px auto"}}>Signup</Button>
-            </form>
-            <div className={Style.animages}>
-            <Heading as='h2' size='2xl' color={'white'} className={Style.login_quote}>Live your life by a compass, not a clock...</Heading>
-            <Link to='/login'style={{color:"white",fontWeight:"600"}}>Click to Login!</Link>
+      <div>
+        <div className="max-h-full max-w-full py-3 md:py-40 mdflex-col lg:flex-row flex items-center justify-evenly">
+          <form className="bg-green-600 rounded-3xl px-10 py-10 shadow-lg shadow-black" onSubmit={AddUser}>
+            <div className="flex items-center justify-center">
+              <RxAvatar className=" text-6xl text-green-600 bg-white rounded-full" />
             </div>
+
+            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col m-2 p-2 my-5 ">
+              <label className="text-white font-bold pl-3 text-start">Enter Name: </label>
+              <input
+                variant="flushed"
+                size="md"
+                type="text"
+                placeholder="name..."
+                className="p-2 mt-3 px-4 focus:outline-none bg-white rounded-full"
+                onChange={(event)=>{
+                  SetName(event.target.value)
+                }}
+              />
+            </div>
+
+            <div className="flex flex-col m-2 p-2 my-5 ">
+              <label className="text-white font-bold pl-3 text-start">Enter Email: </label>
+              <input
+                variant="flushed"
+                size="md"
+                type="email"
+                placeholder="email..."
+                className="p-2 mt-3 px-4 focus:outline-none bg-white rounded-full"
+                onChange={(event)=>{
+                  SetEmail(event.target.value)
+                }}
+              />
+            </div>
+            </div>
+
+            <div className="flex flex-col mt-0 m-2 p-2 my-5 ">
+              <label className="text-white font-bold pl-3 text-start">Enter Password: </label>
+              <input
+                variant="flushed"
+                type="password"
+                placeholder="password..."
+                className="p-2 mt-3 px-4 focus:outline-none bg-white rounded-full"
+                onChange={(event)=>{
+                  SetPassword(event.target.value)
+                }}
+              />
+            </div>
+            <div className='flex justify-center'>
+              <button type="submit" className="item-center m-3 mb-1 text-white bg-green-800 rounded-full p-8 py-2 hover:scale-105 hover:shadow-lg shadow-white">SignUp</button>
+            </div>
+            <div className="flex items-center justify-center">
+              <p className="mr-1 text-black">Already have an account?</p>
+              <Link to="/login" className=" text-blue-900">
+                Login
+              </Link>
+            </div>
+          </form>
+          <div className="hidden md:block">
+            <img src={animation} alt="gif" />
+          </div>
         </div>
+      </div>
     );
 }
 

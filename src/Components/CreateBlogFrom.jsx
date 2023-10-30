@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Style from "./CreateBlogForm.module.css"
-// import Style from './CreateBlogForm.module.css'
-import {Input,Button,Heading} from "@chakra-ui/react"
+import {Input,Heading} from "@chakra-ui/react"
 import {Link} from "react-router-dom"
 function CreateBlogFrom(props) {
     let [Title,SetTitle] = useState("");
@@ -56,11 +55,13 @@ function CreateBlogFrom(props) {
             <Input type='text' margin="20px auto" variant="flushed" color="white" placeholder='Image URL' onChange={(event)=>{
                 SetImage(event.target.value)
             }}/>
-            <Button type='submit' colorScheme='teal' variant='solid'style={{margin:"20px auto"}}>Publish</Button>
+            <div className='flex justify-center'>
+              <button type="submit" className="item-center m-3 mb-1 text-white bg-green-700 rounded-full p-8 py-2 hover:scale-105 hover:shadow-lg shadow-white">Publish</button>
+            </div>
             </form>
             <div className={Style.animages}>
-            <Heading as='h2' size='2xl' color={'white'} className={Style.login_quote}>On earth there is no heaven, but there are pieces of it...</Heading>
-            <Link to='/corner'style={{color:"white",fontWeight:"600"}}>Go Back</Link>
+            <Heading as='h2' size='2xl' color={'white'} className="mb-4">On earth there is no heaven, but there are pieces of it...</Heading>
+            <Link to='/corner' style={{color:"white",fontWeight:"600"}}>Go Back</Link>
             </div>
         </div>
     );

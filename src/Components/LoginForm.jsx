@@ -1,9 +1,12 @@
 import React from 'react';
-import {Input,Button,Heading} from "@chakra-ui/react"
-import Style from './LoginForm.module.css'
+import animation from "../assets/Tablet login.gif";
+import { IoMailOutline } from "react-icons/io5";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { RxAvatar } from "react-icons/rx";
 import {Link,useNavigate} from "react-router-dom"
 import { useState } from 'react'
 function LoginForm(props) {
+    let username;
     let [Email,SetEmail] = useState("");
     let [Password,SetPassword] = useState("");
     let navigate = useNavigate();
@@ -24,7 +27,9 @@ function LoginForm(props) {
             return response.json();
         }).then((response)=>{
             if(response.Message === "Login Successful !"){
+                
                 localStorage.setItem("Current_User",JSON.stringify(response.user));
+                localStorage.setItem("UserName",response.user.Name);
                 localStorage.setItem("User_role",response.user.Role);
                 localStorage.setItem("token",response.token);
                 localStorage.setItem("islogged",true)
@@ -40,24 +45,61 @@ function LoginForm(props) {
         })
     }
     return (
-        <div className={Style.loginformparent}>
-           <form style={{width:"70%",padding:"35px",margin:"auto",backgroundColor:"rgba(0,0,0,0.5)",borderRadius:"8px"}} onSubmit={ValidateUser}>
-            <h1 style={{fontSize:"30px",fontWeight:"600",color:"white"}}>Login</h1>
-            {/* <label>Name</label> */}
-            <Input variant='flushed' placeholder='Enter Your Email' size="md" type='email'style={{color:"white"}} onChange={(event)=>{
+        <div>
+
+      <div className="max-h-full max-w-full py-48 mdflex-col lg:flex-row flex items-center justify-evenly">
+        <form className="bg-green-600 rounded-3xl px-10 py-10 shadow-lg shadow-black" onSubmit={ValidateUser}>
+          
+          <div className="flex items-center justify-center">
+            <RxAvatar className=" text-6xl text-green-600 bg-white rounded-full" />
+          </div>
+
+          <div className="flex items-center justify-evenly m-2 p-2 my-5 bg-white rounded-full">
+            <input
+              variant="flushed"
+              type="email"
+              placeholder="email..."
+              size="md"
+              className="ml-2 focus:outline-none"
+              onChange={(event)=>{
                 SetEmail(event.target.value)
-            }}/><br/><br/>
-            {/* <label>Email</label> */}
-            <Input variant='flushed' placeholder='Enter your Password' size="md" type='password' color="white" style={{color:"white"}} onChange={(event)=>{
-                SetPassword(event.target.value)
-            }}/><br/><br/>
-            <Button type='submit' colorScheme='teal' variant='solid'style={{margin:"20px auto"}}>Login</Button>
-            </form>
-            <div className={Style.animage}>
-            <Heading as='h2' size='2xl' color={'white'} className={Style.login_quote}>Adventure is out there</Heading>
-            <Link to='/signup'style={{color:"white",fontWeight:"600"}}>Click to signup!</Link>
+              }}
+            />
+            <div>
+              <IoMailOutline className="text-3xl ml-2 text-green-600" />
             </div>
+          </div>
+          <div className="flex items-center justify-evenly m-2 p-2 bg-white rounded-full">
+            <input
+              variant="flushed"
+              size="md"
+              type="password"
+              placeholder="password..."
+              className="ml-2 focus:outline-none"
+              onChange={(event)=>{
+                SetPassword(event.target.value)
+              }}
+            />
+            <div>
+              <RiLockPasswordLine className="text-3xl ml-2 text-green-600" />
+            </div>
+          </div>
+          <div className="flex justify-center item-center m-3 mb-1 bg-green-800 rounded-full my-10 py-2 hover:scale-105 hover:shadow-lg shadow-white">
+            <button type="submit" className="text-white">Login</button>
+          </div>
+          <div className="flex items-center justify-center">
+            <p className="mr-1 text-black">Don't have an account?</p>
+            <Link to="/signup" className=" text-blue-900">
+                SignUp
+            </Link>
+          </div>
+          
+        </form>
+        <div className="hidden md:block">
+          <img src={animation} alt="gif"/>
         </div>
+      </div>
+    </div>
     );
 }
 

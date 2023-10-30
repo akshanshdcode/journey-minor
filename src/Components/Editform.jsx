@@ -67,7 +67,9 @@ function Editform(props) {
             <Input type='text' margin="20px auto" variant="flushed" color="white" onChange={(event)=>{
                SetImage(event.target.value)
             }}/>
-            <Button type='submit' colorScheme='teal' variant='solid'style={{margin:"20px auto"}}>Update</Button>
+            <div className='flex justify-center'>
+              <button type="submit" className="item-center m-3 mb-1 text-white bg-green-700 rounded-full p-8 py-2 hover:scale-105 hover:shadow-lg shadow-white">Update</button>
+            </div>
             </form>
             <div className={Style.animages}>
             <Heading as='h2' size='2xl' color={'white'} className={Style.login_quote}>There is a world elsewhere...</Heading>

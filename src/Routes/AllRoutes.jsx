@@ -10,7 +10,6 @@ import Signup from '../Pages/Signup';
 import ReadBlog from '../Pages/ReadBlog';
 import EditBlog from '../Pages/EditBlog';
 function AllRoutes(props) {
-    let role = localStorage.getItem("User_role");
     let islogged = localStorage.getItem("islogged");
     return (
         <div>
@@ -21,7 +20,7 @@ function AllRoutes(props) {
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/signup' element={<Signup/>}/>
                 <Route path='/createblog' element={<Createblog/>}/>
-                <Route path='/corner' element={role=="Blogger"?<WritersCorner/>:<Home/>}/>
+                <Route path='/corner' element={<WritersCorner/>}/>
                 <Route path='/blogs/:id' element={<ReadBlog/>}/>
                 <Route path='/editblogs/:id' element={<EditBlog/>}/>
             </Routes>

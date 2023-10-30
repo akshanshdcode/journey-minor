@@ -32,7 +32,7 @@ function WritersCorner(props) {
                 {/* <img src="https://cdn.pixabay.com/photo/2018/05/13/20/21/lake-3397784_1280.jpg" alt="" /> */}
                <Heading as='h2' color='#62674aff' size='lg' fontStyle='italic'>Take only memories, leave only footprints...</Heading>
             </div>
-            <Heading as='h2' color='black' size='lg'  margin='30px'>Your Blogs</Heading>
+            <Heading as='h2' className='text-green-700' size='lg'  margin='30px'>Your Blogs</Heading>
             <Button variant='outline' colorScheme='green' onClick={()=>{navigate("/createblog")}}>Create Blog</Button>
             <div className={Style.blogs_parent}>
                {
