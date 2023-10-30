@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/journey-minor/static/css/main.4e49345e.css",
-    "main.js": "/journey-minor/static/js/main.0a346930.js",
+    "main.js": "/journey-minor/static/js/main.7bde7fd5.js",
     "static/js/787.0564c43b.chunk.js": "/journey-minor/static/js/787.0564c43b.chunk.js",
     "static/media/Sign up.gif": "/journey-minor/static/media/Sign up.9467e8befe242f32a1dd.gif",
     "static/media/Tablet login.gif": "/journey-minor/static/media/Tablet login.2331bfd27405a6e692c8.gif",
     "index.html": "/journey-minor/index.html",
     "main.4e49345e.css.map": "/journey-minor/static/css/main.4e49345e.css.map",
-    "main.0a346930.js.map": "/journey-minor/static/js/main.0a346930.js.map",
+    "main.7bde7fd5.js.map": "/journey-minor/static/js/main.7bde7fd5.js.map",
     "787.0564c43b.chunk.js.map": "/journey-minor/static/js/787.0564c43b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4e49345e.css",
-    "static/js/main.0a346930.js"
+    "static/js/main.7bde7fd5.js"
   ]
 }
